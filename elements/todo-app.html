@@ -8,7 +8,7 @@
 	<link href="../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
 	<link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
 	<link href="../bower_components/paper-material/paper-material.html" rel="import">
-	<link href="../bower_components/paper-menu/paper-menu.html" rel="import">	
+	<link href="../bower_components/paper-menu/paper-menu.html" rel="import">
 	<link href="../bower_components/paper-item/paper-item.html" rel="import">
 	<link href="../bower_components/paper-input/paper-input.html" rel="import">
 	<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
@@ -22,25 +22,25 @@
 		padding: 0;
 /* 		border-right: 1px solid #ccc; */
 	}
-	
+
 	.list paper-item {
 		min-height: 80px;
 		border-bottom: 1px solid #dedede;
 		background-color: #fafafa;
 	}
-	
+
 	#todoEntry {
 		margin: 0;
 		width: 100%;
 		max-width: none;
 		border-bottom: 1px solid #ccc;
 	}
-	
+
 	paper-input {
 		margin: 0 4vw;
 		padding: 0;
 	}
-	
+
 	paper-material {
 		background-color: #fff;
 		max-width: 640px;
@@ -48,7 +48,7 @@
 		margin: 25px auto;
 		position: relative;
 	}
-	
+
 	#todos {
 		overflow-y: scroll;
 		height: 66vh;
@@ -57,7 +57,7 @@
 	#todos {
 		overflow-y: scroll;
 	}
-  
+
 	paper-fab {
 	    position: absolute;
 	    background: #00BCD4;
@@ -70,7 +70,7 @@
 		height: 100vh;
 		overflow-y: hidden;
 	}
-	
+
 	.task-empty paper-item {
 		text-align: center;
 		padding: 25px;
@@ -80,7 +80,7 @@
 	paper-toolbar {
 		background:#D32F2F;
 	}
-	
+
 	#made-with {
 		width:100%;
 		margin:0;
@@ -88,15 +88,15 @@
 		bottom: 0;
 		text-align: center;
 	}
-	
+
 	#made-with img {
 		width: 35%;
 		padding: 10px;
 	}
-	
+
 
 	</style>
-  
+
 	<template>
 		<paper-drawer-panel>
 			<paper-header-panel class="side-panel" drawer>
@@ -130,7 +130,7 @@
 					<!-- To create a new Todo -->
 					<paper-material id="todoEntry" elevation="2">
 						<paper-input id="tTask" label="Task"></paper-input>
-						<paper-input id="tUser" char-counter label="Username" maxlength="16" error="maximum characters exceeded" style="width:75%;display: inline-block" ></paper-input> 
+						<paper-input id="tUser" char-counter label="Username" maxlength="16" error="maximum characters exceeded" style="width:75%;display: inline-block" ></paper-input>
 						<paper-fab icon="icons:add" on-tap="postTask"></paper-fab>
 					</paper-material>
 					<div id="todos">
@@ -145,13 +145,13 @@
 					</div>
 				</div>
 			</paper-header-panel>
-		</paper-drawer-panel> 
-		<core-pubnub 
-	        publish_key="pub-c-7fad26fe-6c38-4940-b9c3-fbd19a9633af" 
+		</paper-drawer-panel>
+		<core-pubnub
+	        publish_key="pub-c-7fad26fe-6c38-4940-b9c3-fbd19a9633af"
 	        subscribe_key="sub-c-30c17e1a-0007-11e5-a8ef-0619f8945a4f">
 	        <core-pubnub-publish id="pub" channel="todo" message="Hello"> </core-pubnub-publish>
-	        <core-pubnub-subscribe id="sub" channel="todo" messages="{{messages}}" presence="{{present}}" on-callback="subscribeCallback"></core-pubnub-subscribe>   
-        </core-pubnub> 
+	        <core-pubnub-subscribe id="sub" channel="todo" messages="{{messages}}" presence="{{present}}" on-callback="subscribeCallback"></core-pubnub-subscribe>
+        </core-pubnub>
 	</template>
 </dom-module>
 
@@ -165,7 +165,7 @@
     	// declare properties for the element's public API
 		todo: {
 			type: Array,
-			value: [{user:"Kevin",task:"Make a Polymer app!",rid:0}, {user:"Justin",task:"Drink some scotch.io",rid:1}, {user:"Tomomi",task:"Think of task.",rid:2}]
+			value: [{user:"Satan",task:"Tickle Hitler",rid:0}, {user:"Roberto",task:"Be Sleepy",rid:1}, {user:"Torbjorn",task:"Hammer turret",rid:2}]
 		},
 		done:{
 			type:Array,
@@ -219,7 +219,7 @@
 			    	break;
 			    case "done":
 			    	var idx = findWithAttr(this.todo, 'rid',item.rid);
-				    
+
 				    if (idx == -1){return;}
 				    var itm = this.splice('todo', idx, 1)[0];
 				    itm.task = item.task;
@@ -256,8 +256,8 @@
 		window.onresize();
 	}
   });
-  var names1 = ["red","orange","yellow","green","blue","indigo","purple"];
-  var names2 = ["hat","shoe","car","light","cat", "gnome"];
+  var names1 = ["depressed","dirty","ancient","agreeable","salty","mysterious","dizzy"];
+  var names2 = ["potato","dodo","princess","hobo","cat", "gnome"];
   function randItem(arr){
 	  return arr[Math.floor(Math.random()*arr.length)];
   }
